@@ -29,7 +29,7 @@
     .badge:focus-visible,.badge:hover .icon{ outline:0; box-shadow:0 0 0 3px #dbeafe }
 
     .hero{ display:flex; justify-content:center; margin:24px auto 36px; }
-    .hero img{ max-width:90%; height:auto; border:1px solid var(--line) }
+    .hero img{ max-width:80%; height:auto; border:1px solid var(--line) }
 
     section{ max-width:1040px; margin:0 auto; text-align:justify }
     h2{ font-size:24px; margin:28px 0 12px }
@@ -46,10 +46,36 @@
     @media (max-width: 900px){ .video-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); } }
     @media (max-width: 600px){ .video-grid{ grid-template-columns: 1fr; } }
   
-    .workflow-text {
+    .normal_text {
       font-size: 20px;   /* bigger font */
       line-height: 1.75; /* more readable */
     }
+    .confusion_matrix img {
+      max-width: 40%; /* smaller image */
+      height: auto;
+      border: 1px solid var(--line);
+      display: block;
+      margin: 0 auto; /* center the image */
+    }
+
+    .real_world_reconstruction img {
+      max-width: 70%; /* smaller image */
+      height: auto;
+      border: 1px solid var(--line);
+      display: block;
+      margin: 0 auto; /* center the image */
+    }
+
+
+    .plants img {
+      max-width: 20%; /* smaller image */
+      height: auto;
+      border: 1px solid var(--line);
+      display: block;
+      margin: 0 auto; /* center the image */
+    }
+
+  
   </style>
 </head>
 <body>
@@ -99,7 +125,7 @@
 
     <section>
       <h2>SSL-Semantic-NBV Workflow</h2>
-      <p class="workflow-text">
+      <p class="normal_text">
         An overview of the self-supervised learning process within a single NBV iteration. Each iteration involves eight steps: 
         (i) predict IG for candidate views via a neural network using the current reconstruction and viewpoint history; 
         (ii) select the next viewpoint based on predicted IG; 
@@ -114,12 +140,11 @@
     </section>
 
     <div class="hero" aria-label="Project figure">
-      <img src="assets/self_supervised_learning_framework.png" alt="Project figure" />
+      <img src="assets/self_supervised_learning_framework_final.drawio.png" alt="Project figure" />
     </div>
 
-
     <!-- Video section -->
-    <section class="videos">
+    <!-- <section class="videos">
       <h2>NBV Planning at Different Training Stages</h2>
       <div class="video-grid">
         <div class="video-cell">
@@ -141,6 +166,30 @@
           </video>
         </div>
       </div>
+    </section> -->
+
+    <section>
+      <h2>Experiment plants</h2>
+        <div class="plants" aria-label="Project figure">
+          <img src="assets/simulated_plants_normal_ICRA.png" alt="Project figure" />
+        </div>
+
+      <h2>Comparison with baseline methods</h2>
+        <div class="hero" aria-label="Project figure">
+          <img src="assets/reconstruction_ratio_simulation.png" alt="Project figure" />
+        </div>
+      <h2>Abalation test</h2>
+        <div class="hero" aria-label="Project figure">
+          <img src="assets/ablation_test.drawio.png" alt="Project figure" />
+        </div>
+      <h2>Test target-aware mechanism</h2>
+        <div class="confusion_matrix" aria-label="Project figure">
+          <img src="assets/confusion_matrix.png" alt="Project figure" />
+        </div>
+      <h2>Real-world test</h2>
+        <div class="real_world_reconstruction" aria-label="Project figure">
+          <img src="assets/short_cut_rw.png" alt="Project figure" />
+        </div>
     </section>
 
     <footer>
