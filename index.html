@@ -38,11 +38,56 @@
     .dot{ font-weight:700; padding:0 6px }
 
     /* --- Videos grid (3 per row, equal size) --- */
+    .video-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;       /* space between labels and video */
+        height: 100vh;   /* full window */
+      }
+
+      .video-labels {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around; /* spread evenly along height */
+        font-size: 20px;
+        text-align: right;
+        min-width: 100px; /* space for labels */
+      }
+
+      .video-cell {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .video-cell video {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+      }
+    
     .videos { max-width: 1040px; margin: 0 auto 40px; }
     .videos h2 { font-size: 24px; margin: 28px 0 16px; text-align: left; }
     .video-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-    .video-cell { position: relative; width: 100%; aspect-ratio: 16 / 9; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #fafafa; }
-    .video-cell video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: #000; }
+   .video-cell {
+              width: 100%;
+              height: 100vh;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              background: transparent;  /* or var(--bg) to match your page */
+              border: none;
+              border-radius: 0;
+            }
+
+            .video-cell video {
+              max-width: 100%;
+              max-height: 100%;
+              object-fit: contain; /* no crop */
+              background: #000;    /* keep inside video only */
+            }
     @media (max-width: 900px){ .video-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); } }
     @media (max-width: 600px){ .video-grid{ grid-template-columns: 1fr; } }
   
@@ -75,8 +120,6 @@
       margin: 0 auto; /* center the image */
     }
     
-
-  
   </style>
 </head>
 <body>
@@ -144,54 +187,24 @@
       <img src="assets/self_supervised_learning_framework_final.drawio.png" alt="Project figure" />
     </div>
 
-    <!-- Video section -->
-    <!-- <section class="videos">
-      <h2>NBV Planning at Different Training Stages</h2>
-      <div class="video-grid">
-        <div class="video-cell">
-          <video controls>
-            <source src="assets/train_0.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="video-cell">
-          <video controls>
-            <source src="assets/train_50.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="video-cell">
-          <video controls>
-            <source src="assets/train_100.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
-    </section> -->
-
     <section>
       <h2>Experiment plants</h2>
         <div class="plants" aria-label="Project figure">
           <img src="assets/simulated_and RW_plants_smaller.png" alt="Project figure" />
         </div>
+    </section>
 
-      <h2>Comparison with baseline methods</h2>
-        <div class="hero" aria-label="Project figure">
-          <img src="assets/reconstruction_ratio_simulation.png" alt="Project figure" />
-        </div>
-      <h2>Abalation test</h2>
-        <div class="hero" aria-label="Project figure">
-          <img src="assets/ablation_test.drawio.png" alt="Project figure" />
-        </div>
-      <h2>Test target-aware mechanism</h2>
-        <div class="confusion_matrix" aria-label="Project figure">
-          <img src="assets/confusion_matrix.png" alt="Project figure" />
-        </div>
-      <h2>Real-world test</h2>
-        <div class="real_world_reconstruction" aria-label="Project figure">
-          <img src="assets/short_cut_rw.png" alt="Project figure" />
+    <!-- Video section -->
+    <section class="videos">
+      <h2>NBV Planning at Different Training Stages for Plants, Fruits, and Nodes</h2>
+        <div class="video-cell">
+          <video controls>
+            <source src="assets/all_targets.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
         </div>
     </section>
+
 
     <footer>
       © <span id="year"></span> Your Name · Built with GitHub Pages
